@@ -1,3 +1,3 @@
 export default {
-    SOCKET_SERVER_URL: "http://localhost:8000"
+    SOCKET_SERVER_URL: process.env.REACT_APP_SOCKET_SERVER_URL
 }
