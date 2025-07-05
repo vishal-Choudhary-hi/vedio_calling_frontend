@@ -116,6 +116,7 @@ const MeetRoomModal = () => {
 
         window.addEventListener("beforeunload", () => {
           socketInstance.disconnect();
+          window.parent.postMessage({ type: "close" }, "*");
           stream.getTracks().forEach(track => track.stop());
         });
       })
@@ -198,6 +199,7 @@ const MeetRoomModal = () => {
   };
 
   const disconnectCall = () => {
+    window.parent.postMessage({ type: "close" }, "*");
     localStream?.getTracks().forEach((track) => track.stop());
     navigate("/");
   };
